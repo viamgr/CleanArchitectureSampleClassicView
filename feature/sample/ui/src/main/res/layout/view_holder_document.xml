@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="label"
+            type="String" />
+
+        <variable
+            name="onItemClickListener"
+            type="com.cleansample.ui_common.utils.OnItemClickListener" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/view_holder_document"
+        style="@style/AppTheme.Clickable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_small"
+        android:gravity="center"
+        android:onClick="@{() -> onItemClickListener.onItemClick()}"
+        android:paddingVertical="@dimen/size_small">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_document" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_small"
+            android:layout_weight="1"
+            android:text="@{label}"
+            android:textAppearance="@style/Text.Label"
+            tools:text="Grundriss" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/size_small"
+            app:srcCompat="@drawable/chevron" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

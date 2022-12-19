@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="total"
+            type="int" />
+
+        <variable
+            name="onItemClickListener"
+            type="com.cleansample.ui_common.utils.OnItemClickListener" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_holder_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/AppTheme.Clickable"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:background="@color/gray_600"
+            android:onClick="@{() -> onItemClickListener.onItemClick()}"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="10:7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{imageUrl}"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_small"
+            app:cardBackgroundColor="@color/black_transparent"
+            app:cardCornerRadius="@dimen/size_x_small"
+            app:cardElevation="@dimen/size_x_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:strokeWidth="0dp"
+            tools:background="@color/black_transparent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_small"
+                android:text="@{@string/carousel_index_total(index, total)}"
+                android:textAppearance="@style/Text.Indicator"
+                tools:text="15/20" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

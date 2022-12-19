@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onShareClickedListener"
+            type="com.cleansample.ui_common.utils.OnItemClickListener" />
+
+    </data>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/view_holder_share"
+        style="@style/AppTheme.Clickable"
+        android:layout_width="@dimen/size_large"
+        android:layout_height="@dimen/size_large"
+        android:onClick="@{() -> onShareClickedListener.onItemClick()}"
+        android:padding="@dimen/size_xx_small"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_share_24"
+        tools:showIn="@layout/wrapper_carousel" />
+</layout>
